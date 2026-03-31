@@ -1,0 +1,48 @@
+# Generated Knowledge Bases
+NotebookLM_Knowledge_Base*.md
+*-knowledge-base*.md
+*-docs-base.md
+KOI_SCRAPE_REPORT.md
+
+# Cache and Extracted Content
+.codescrap_cache.json
+assets/
+downloads/
+
+# Environment
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.eggs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+.env
+.env.local
+
+# Test/Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Misc
+.cache/
+*.log

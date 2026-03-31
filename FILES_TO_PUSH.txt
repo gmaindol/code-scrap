@@ -1,0 +1,79 @@
+================================================================================
+                    FILES TO PUSH TO GITHUB
+================================================================================
+
+✅ WILL BE PUSHED (Source Code & Docs)
+================================================================================
+
+codescrap/
+  ├── __init__.py              [Package init]
+  ├── cli.py                   [CLI + orchestrator]
+  ├── config.py                [Configuration dataclass]
+  ├── discovery.py             [Sitemap fetching]
+  ├── networking.py            [HTTP + rate limiting]
+  ├── cache.py                 [URL caching]
+  ├── images.py                [Image downloading]
+  ├── output.py                [Markdown compilation]
+  └── extractors/
+      ├── __init__.py          [Router]
+      ├── html.py              [HTML extraction]
+      ├── pdf.py               [PDF extraction]
+      └── openapi.py           [OpenAPI extraction]
+
+main.py                         [Entry point]
+pyproject.toml                  [Project metadata]
+requirements.txt                [Dependencies]
+
+README.md                        [Project overview]
+USER_GUIDE.md                    [How-to guide]
+CLAUDE.md                        [Architecture details]
+GITHUB_SETUP.md                  [Detailed GitHub setup]
+PUSH_TO_GITHUB.md                [Quick push guide]
+NEXT_STEPS.md                    [Summary]
+.gitignore                       [Git ignore patterns]
+
+
+❌ WILL NOT BE PUSHED (Generated Content)
+================================================================================
+
+koi-knowledge-base_part1.md     [Generated from scrape]
+koi-knowledge-base_part2.md     [Generated from scrape]
+KOI_SCRAPE_REPORT.md            [Generated report]
+.codescrap_cache.json           [Local cache - ignored by .gitignore]
+assets/                         [Downloaded images - ignored by .gitignore]
+.venv/                          [Virtual env - ignored by .gitignore]
+__pycache__/                    [Python cache - ignored by .gitignore]
+
+
+COMMAND CHECKLIST
+================================================================================
+
+1. ✓ Create .gitignore             [DONE]
+2. □ Verify git status              → git status
+3. □ Stage files                    → git add -A
+4. □ Commit code                    → git commit -m "Initial commit..."
+5. □ Add GitHub remote              → git remote add origin https://...
+6. □ Push to GitHub                 → git push -u origin main
+
+
+QUICK 5-STEP PUSH
+================================================================================
+
+1. Create repo at github.com/new
+2. git add -A
+3. git commit -m "Initial commit: code-scrap pipeline"
+4. git remote add origin https://github.com/YOUR_USERNAME/code-scrap.git
+5. git push -u origin main
+
+→ View at: https://github.com/YOUR_USERNAME/code-scrap
+
+
+VERIFY GITIGNORE WORKING
+================================================================================
+
+These should be HIDDEN (not in git status):
+  koi-knowledge-base*.md
+  assets/
+  .codescrap_cache.json
+
+Run: git status
