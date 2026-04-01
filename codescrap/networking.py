@@ -1,6 +1,7 @@
 import asyncio
 import random
 import logging
+import ssl
 
 import aiohttp
 
@@ -9,8 +10,25 @@ logger = logging.getLogger(__name__)
 
 def create_session(config) -> aiohttp.ClientSession:
     timeout = aiohttp.ClientTimeout(total=30)
-    headers = {"User-Agent": config.user_agent}
-    return aiohttp.ClientSession(timeout=timeout, headers=headers)
+    headers = {
+        "User-Agent": config.user_agent,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Accept-Encoding": "gzip, deflate",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+        "DNT": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
+    }
+    # Create SSL context that's more permissive (for sites with Cloudflare or similar)
+    ssl_context = ssl.create_default_context()
+    ssl_context.check_hostname = True
+    ssl_context.verify_mode = ssl.CERT_REQUIRED
+
+    connector = aiohttp.TCPConnector(ssl=ssl_context)
+    return aiohttp.ClientSession(timeout=timeout, headers=headers, connector=connector)
 
 
 async def fetch_with_retry(

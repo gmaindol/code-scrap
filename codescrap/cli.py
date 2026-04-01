@@ -56,6 +56,9 @@ def parse_args(argv: list[str] | None = None) -> ScrapeConfig:
         "--assets-dir", default="assets", help="Directory for downloaded images"
     )
     parser.add_argument(
+        "--user-agent", default=None, help="Custom User-Agent string (for bot detection bypass)"
+    )
+    parser.add_argument(
         "--no-cache", action="store_true", help="Ignore existing cache"
     )
     parser.add_argument(
@@ -77,6 +80,8 @@ def parse_args(argv: list[str] | None = None) -> ScrapeConfig:
         config.keywords = args.keywords
     if args.exclude:
         config.exclude_keywords = args.exclude
+    if args.user_agent:
+        config.user_agent = args.user_agent
 
     return config
 
